@@ -59,13 +59,15 @@ function init() {
   };
 
   let drawTable = (arr) => {
+    let fragment = new DocumentFragment();
     let elementsArray = arr.map((i) => {
       let item = document.createElement("div");
       item.innerText = i;
       item.setAttribute("class", "item");
-      root.append(item);
+      fragment.append(item);
       return item;
     });
+    root.append(fragment);
     let target = elementsArray[elementsArray.length - 1];
     initializeObserver(root, target, callback);
     _offset += _num;
